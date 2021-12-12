@@ -5,6 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 // import '../NavBar/styles.css';
 
 import { AuthContext } from '../../context/AuthContext';
+// const classes = "btn btn-primary";
 
 const AuthButton = withRouter(({ history }) => {
   const auth = useContext(AuthContext);
@@ -12,7 +13,7 @@ const AuthButton = withRouter(({ history }) => {
   if (!auth.isAuthenticated) {
     return (
       <Link className='btn btn-primary' to='/login' id='signup'>
-        Login / Sign Up
+        Login
       </Link>
     );
   }

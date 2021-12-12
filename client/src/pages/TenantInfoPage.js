@@ -3,7 +3,6 @@ import NavBar from '../components/NavBar';
 
 import '../styles/tenantinfo.css';
 
-
 class TenantInfoPage extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,7 @@ class TenantInfoPage extends React.Component {
   }
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
@@ -29,12 +28,11 @@ class TenantInfoPage extends React.Component {
     });
   }
   handleSubmit = (event) => {
-     event.preventDefault();
-    fetch('/api/Listings', {
- 
-    })
-    .then(res => res.json()).then(data => console.log(data))
-      }
+    event.preventDefault();
+    fetch('/api/Listings', {})
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
   render() {
     return (
@@ -47,28 +45,29 @@ class TenantInfoPage extends React.Component {
             <div class='contact'>
               {/* <h2>Contact Information</h2> */}
 
-              <form class="tenant-info" onSubmit={this.handleSubmit}
-            // action="http://localhost:3001/"
-            // method="post"
-          >
-                <label for="fullName">Full Name:</label>
+              <form
+                class='tenant-info'
+                onSubmit={this.handleSubmit}
+                // action="http://localhost:3001/"
+                // method="post"
+              >
+                <label for='fullName'>Full Name:</label>
 
                 <input
-                  type="text"
-                  placeholder="Enter Full Name"
-                  name="fullName"
-
+                  type='text'
+                  placeholder='Enter Full Name'
+                  name='fullName'
                   value={this.state.fullName}
-                onChange={this.handleInputChange}
+                  onChange={this.handleInputChange}
                 />
                 <br />
-                <label for="phone">Phone Number:</label>
+                <label for='phone'>Phone Number:</label>
                 <input
-                  type="number"
-                  placeholder="Enter Phone Number"
-                  name="phone"
+                  type='number'
+                  placeholder='Enter Phone Number'
+                  name='phone'
                   value={this.state.phone}
-                onChange={this.handleInputChange}
+                  onChange={this.handleInputChange}
                 />
                 {/* <br /> */}
                 {/* <label for="email">Email Address:</label>
@@ -78,31 +77,27 @@ class TenantInfoPage extends React.Component {
                   name="email"
 
                 /> */}
-                  value={this.state.email}
+                {/* value={this.state.email}
                 onChange={this.handleInputChange}
-                />
+                /> */}
 
                 <br />
                 <label for='credit'>Credit Score:</label>
                 <input
-
-                  type="number"
-                  placeholder="Enter Credit Score"
-                  name="credit"
+                  type='number'
+                  placeholder='Enter Credit Score'
+                  name='credit'
                   value={this.state.credit}
-                onChange={this.handleInputChange}
-
+                  onChange={this.handleInputChange}
                 />
                 <br />
                 <label for='income'>Income:</label>
                 <input
-
-                  type="number"
-                  placeholder="Enter Household Income"
-                  name="income"
+                  type='number'
+                  placeholder='Enter Household Income'
+                  name='income'
                   value={this.state.income}
-                onChange={this.handleInputChange}
-
+                  onChange={this.handleInputChange}
                 />
                 <br />
                 <label for='employment'>Proof of Employment:</label>
@@ -110,10 +105,9 @@ class TenantInfoPage extends React.Component {
                   type='file'
                   //   placeholder='Enter Phone Number'
 
-                  name="employment"
+                  name='employment'
                   value={this.state.employment}
-                onChange={this.handleInputChange}
-
+                  onChange={this.handleInputChange}
                 />
                 <br />
                 <label for='id'>Proof of Identification:</label>
@@ -121,10 +115,9 @@ class TenantInfoPage extends React.Component {
                   type='file'
                   //   placeholder='Enter Phone Number'
 
-                  name="id"
+                  name='id'
                   value={this.state.id}
-                onChange={this.handleInputChange}
-
+                  onChange={this.handleInputChange}
                 />
                 <br />
                 <input type='submit' value='Submit Information' />
