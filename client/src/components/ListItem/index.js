@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import "./styles.css";
+import './styles.css';
 
 class ListItem extends React.Component {
   state = {
-    imageURL: "",
+    imageURL: '',
   };
 
   componentDidMount() {
-    fetch("/api/sources/img/" + this.props.name)
+    fetch('/api/sources/img/' + this.props.name)
       .then((res) => res.blob())
       .then((imageBlob) => {
         // Then create a local URL for that image and print it
@@ -20,15 +20,17 @@ class ListItem extends React.Component {
       });
   }
 
+  createListing = (event) => {};
+
   render() {
     return (
-      <div id="post">
-        <img id="house-pic" src={this.state.imageURL} alt="" />
+      <div id='post'>
+        <img id='house-pic' src={this.state.imageURL} alt='' />
         {/* TODO: replace text with props value */}
-        <div id="desc">
+        <div id='desc'>
           <h2>Rent {this.props.rent}</h2>
           <p>{this.props.address}</p>
-          <input type="button" value="Schedule" />
+          <input type='button' value='Schedule' onClick={this.createListing} />
         </div>
       </div>
     );
